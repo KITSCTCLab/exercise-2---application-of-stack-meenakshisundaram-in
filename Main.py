@@ -26,10 +26,10 @@ class Evaluate:
       True if it is empty, else returns False.
     """
       # Write your code here
-        if self.top==-1:
-            return True
-        else:
-            return False
+    if self.top==-1:
+       return True
+    else:
+       return False
 
 
   def _pop(self):
@@ -65,15 +65,6 @@ class Evaluate:
     Returns:
       True if the expression is valid, else returns False.
     """
-    """stack = []
-    for x in expression:
-    if x=="+" or x=="-" or x=="/" or x=="*" or x=="%" or x=="**":
-        value1=stack.pop()
-        value2=stack.pop()
-        operators_dictionary = {"+":operator.add,"-":operator.sub,"*":operator.mul,"/":operator.truediv,"%":operator.mod,"**":operator.pow}
-        stack.append(operators_dictionary[x](value2,value1))
-    else:
-        stack.append(int(x))"""
     for x in expression:
       if x=="+" or x=="-" or x=="/" or x=="*" or x=="%" or x=="**":
         value1=_pop()
@@ -93,15 +84,6 @@ class Evaluate:
     Returns:
       The result of evaluated postfix expression.
     """
-    # Write your code here
-    '''for x in expression:
-    if x=="+" or x=="-" or x=="/" or x=="*" or x=="%" or x=="**":
-        value1=stack.pop()
-        value2=stack.pop()
-        operators_dictionary = {"+":operator.add,"-":operator.sub,"*":operator.mul,"/":operator.truediv,"%":operator.mod,"**":operator.pow}
-        stack.append(operators_dictionary[x](value2,value1))
-    else:
-        stack.append(int(x))'''
     for x in expression:
       if x=="+" or x=="-" or x=="/" or x=="*" or x=="%" or x=="**":
         value1=_pop()
