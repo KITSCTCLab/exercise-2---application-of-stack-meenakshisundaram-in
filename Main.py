@@ -86,9 +86,9 @@ class Evaluate:
     Returns:
       The result of evaluated postfix expression.
     """
-    for x in expression:
-        if x.isnumeric():
-            self.push(int(x))
+    for i in expression:
+        if i.isnumeric():
+            self.push(int(i))
         else:
            a=self._pop()
            b=self._pop()
