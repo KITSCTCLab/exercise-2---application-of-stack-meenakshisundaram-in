@@ -92,8 +92,8 @@ class Evaluate:
         if i.isnumeric():
             self.push(i)
         else:
-           a=self._pop()
-           b=self._pop()
+           a=int(self._pop())
+           b=int(self._pop())
            if i == "+":
              self.push(b + a)
            elif i == "-":
@@ -104,7 +104,8 @@ class Evaluate:
              self.push(b / a)
            elif i == "^":
              self.push(b ** a)
-     return int(self.stack[0])
+     
+    return int(self.stack[0])
 
 
 # Do not change the following code
