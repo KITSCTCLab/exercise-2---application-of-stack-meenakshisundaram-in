@@ -90,11 +90,18 @@ class Evaluate:
         if x.isnumeric():
             self.push(int(x))
         else:
-            if x=="+" or x=="-" or x=="/" or x=="*" or x=="%" or x=="**":
-               value1=self._pop()
-               value2=self._pop()
-               operators_dictionary = {"+":operator.add,"-":operator.sub,"*":operator.mul,"/":operator.truediv,"%":operator.mod,"**":operator.pow}
-               self.push(operators_dictionary[x](value2,value1))
+           a=self._pop()
+           b=self._pop()
+           if i == "+":
+             self.push(b + a)
+           elif i == "-":
+             self.push(b - a)
+           elif i == "*":
+             self.push(b * a)
+           elif i == "/":
+             self.push(b / a)
+           elif i == "^":
+             self.push(b ** a)
     return self.stack[0]
 
 
