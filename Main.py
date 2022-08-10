@@ -73,7 +73,7 @@ class Evaluate:
         if x.isnumeric()==True:
             return True
         else:
-            if x in "+-/*^":
+            if x=="+" or x=="-" or x=="*" or x=="/" or x=="**":
                 return True
             else:
                 return False
@@ -90,11 +90,11 @@ class Evaluate:
     """
     for i in expression:
         if i.isnumeric():
-            self.push(i)
+            self.push(int(i))
         else:
-           a=int(self._pop())
-           b=int(self._pop())
-           if i == "+":
+           a=self._pop()
+           b=self._pop()
+           """if i == "+":
              self.push(b + a)
            elif i == "-":
              self.push(b - a)
@@ -103,9 +103,11 @@ class Evaluate:
            elif i == "/":
              self.push(b / a)
            elif i == "^":
-             self.push(b ** a)
+             self.push(b ** a)"""
+           operations_dictionary={"+":operator.add,"-":operator.sub,"*":operator.mul,"/":operator.truediv,"^":operator.pow}
+           self.push(operations_dictionary[i](value2,value1))
      
-    return int(self.stack[0])
+    return self.stack[0]
 
 
 # Do not change the following code
