@@ -105,7 +105,7 @@ class Evaluate:
            elif i == "^":
              self.push(b ** a)"""
            operations_dictionary={"+":operator.add,"-":operator.sub,"*":operator.mul,"/":operator.truediv,"^":operator.pow}
-           self.push(operations_dictionary[i](value2,value1))
+           self.push(operations_dictionary[i](b,a))
      
     return self.stack[0]
 
