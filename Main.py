@@ -104,7 +104,6 @@ class Evaluate:
              self.push(b / a)
            elif i == "^":
              self.push(b ** a)
-    
      return int(self.stack[0])
 
 
