@@ -102,7 +102,10 @@ class Evaluate:
              self.push(b / a)
            elif i == "^":
              self.push(b ** a)
-    return self.stack[0]
+     if len(self.stack) > 1:
+        return "Invalid Expression"
+     else:
+        return int(self.stack[0])
 
 
 # Do not change the following code
