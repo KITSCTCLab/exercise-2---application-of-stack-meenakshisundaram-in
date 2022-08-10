@@ -88,10 +88,10 @@ class Evaluate:
     """
     for i in expression:
         if i.isnumeric():
-            self.push(int(i))
+            self.push(i)
         else:
-           a=self._pop()
-           b=self._pop()
+           a=int(self._pop())
+           b=int(self._pop())
            if i == "+":
              self.push(b + a)
            elif i == "-":
@@ -102,7 +102,7 @@ class Evaluate:
              self.push(b / a)
            elif i == "^":
              self.push(b ** a)
-     if len(self.stack) > 1:
+     if (len(self.stack))>1:
         return "Invalid Expression"
      else:
         return int(self.stack[0])
