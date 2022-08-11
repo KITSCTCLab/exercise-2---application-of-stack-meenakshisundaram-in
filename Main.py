@@ -87,8 +87,8 @@ class Evaluate:
       if x=="+" or x=="-" or x=="/" or x=="*" or x=="%" or x=="**":
         value1=self._pop()
         value2=self._pop()
-        if x=="+":
-          self.push(value1+value2)
+        operators_dictionary = {"+":operator.add,"-":operator.sub,"*":operator.mul,"/":operator.floordiv,"%":operator.mod,"**":operator.pow}
+        stack.append(operators_dictionary[x](value2,value1))
       else:
         self.push(int(x))
      
