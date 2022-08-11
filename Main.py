@@ -83,13 +83,13 @@ class Evaluate:
     Returns:
       The result of evaluated postfix expression.
     """
-    for x in self.expression:
+    for x in expression:
       if x=="+" or x=="-" or x=="/" or x=="*" or x=="%" or x=="**":
         value1=self._pop()
         value2=self._pop()
         operators_dictionary = {"+":operator.add,"-":operator.sub,"*":operator.mul,"/":operator.floordiv,"%":operator.mod,"**":operator.pow}
         stack.append(operators_dictionary[x](value2,value1))
-      else:
+      elif x.isnumeric():
         self.push(int(x))
      
     return self.stack[0]
