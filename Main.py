@@ -70,15 +70,10 @@ class Evaluate:
       True if the expression is valid, else returns False.
     """
     for x in expression:
-        if x.isnumeric()==True:
-            return True
-        else:
-            if x=="+" or x=="-" or x=="*" or x=="/" or x=="**":
-                return True
-            else:
-                return False
-    
-
+       if x=="+" or x=="-" or x=="*" or x=="/" or x=="**":
+         return True
+       else:
+         return False
 
   def evaluate_postfix_expression(self, expression):
     """
@@ -88,24 +83,14 @@ class Evaluate:
     Returns:
       The result of evaluated postfix expression.
     """
-    for i in expression:
-        if i.isnumeric():
-            self.push(int(i))
-        else:
-           a=self._pop()
-           b=self._pop()
-           """if i == "+":
-             self.push(b + a)
-           elif i == "-":
-             self.push(b - a)
-           elif i == "*":
-             self.push(b * a)
-           elif i == "/":
-             self.push(b / a)
-           elif i == "^":
-             self.push(b ** a)"""
-           operations_dictionary={"+":operator.add,"-":operator.sub,"*":operator.mul,"/":operator.floordiv,"^":operator.pow}
-           self.push(operations_dictionary[i](b,a))
+    for x in self.expression:
+      if x=="+" or x=="-" or x=="/" or x=="*" or x=="%" or x=="**":
+        value1=self._pop()
+        value2=self._pop()
+        if x=="+":
+          self.push(value1+value2)
+      else:
+        self.push(int(x))
      
     return self.stack[0]
 
